@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+<!--Don't forget your import here-->
+{% block title %}Add A New Cafe{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+
+      <h1>Add a new cafe into the database</h1>
+
+      <form method="POST" novalidate> 
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+          {{ form.cafe.label(class="form-label") }}
+          {{ form.cafe(class="form-control") }}
+
+          {% for error in form.cafe.errors %}
+            <div class="text-danger">{{ error }}</div>
+          {% endfor %}  
+        </div>
+        <div class="form-group">
+          {{ form.location.label(class="form-label") }}
+          {{ form.location(class="form-control") }}
+
+          {% for error in form.location.errors %}
+            <div class="text-danger">{{ error }}</div>
+          {% endfor %} 
+        </div>
+        <div class="form-group">
+          {{ form.open_time.label(class="form-label") }}
+          {{ form.open_time(class="form-control") }}
+
+          {% for error in form.open_time.errors %}
+            <div class="text-danger">{{ error }}</div>
+          {% endfor %} 
+        </div>
+        <div class="form-group">
+          {{ form.closing_time.label(class="form-label") }}
+          {{ form.closing_time(class="form-control") }}
+
+          {% for error in form.closing_time.errors %}
+            <div class="text-danger">{{ error }}</div>
+          {% endfor %} 
+        </div>
+        <div class="form-group">
+          {{ form.coffee_rating.label(class="form-label") }}
+          {{ form.coffee_rating(class="form-select") }}
+
+          {% for error in form.coffee_rating.errors %}
+            <div class="text-danger">{{ error }}</div>
+          {% endfor %} 
+        </div>
+        <div class="form-group">  
+          {{ form.wifi_rating.label(class="form-label") }}
+          {{ form.wifi_rating(class="form-select") }}
+
+          {% for error in form.wifi_rating.errors %}
+            <div class="text-danger">{{ error }}</div>
+          {% endfor %} 
+        </div>
+        <div class="form-group">  
+          {{ form.power_rating.label(class="form-label") }}
+          {{ form.power_rating(class="form-select") }}
+
+          {% for error in form.power_rating.errors %}
+            <div class="text-danger">{{ error }}</div>
+          {% endfor %} 
+        </div>
+        <div class="form-group space-above">  
+          {{ form.submit(class="btn btn-primary") }}
+
+          {% for error in form.cafe.errors %}
+            <div class="text-danger">{{ error }}</div>
+          {% endfor %} 
+        </div>
+      </form>
+      
+
+      <!-- This is where your WTForm will go -->
+
+	  <p class="space-above"><a href="/cafes">See all cafes</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
